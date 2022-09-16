@@ -90,7 +90,7 @@ class StockMoveLine(models.Model):
 
             if record.state == 'done':
                 quants = self.env['stock.quant'].search([('product_id','=',record.product_id.id),('in_date','<=',record.date),('inventory_date','=',False)],order="id asc")
-                available_quantity = sum(quants.mapped('reserved_quantity'))- sum(quants.mapped('quantity'))
+                available_quantity = sum(quants.mapped('quantity')) - sum(quants.mapped('reserved_quantity'))
                 #import pdb; pdb.set_trace()
                 # if len(quants) == 0:
                 #     record.saldo_existencia = record.qty_done
@@ -123,7 +123,7 @@ class StockMoveLine(models.Model):
                 record.saldo_existencia = available_quantity
             else:
                 quants_disp = self.env['stock.quant'].search([('product_id','=',record.product_id.id),('in_date','<',record.date),('inventory_date','=',False)],order="id asc")
-                available_quantity_dispo = sum(quants_disp.mapped('reserved_quantity'))- sum(quants_disp.mapped('quantity'))
+                available_quantity_dispo = sum(quants_disp.mapped('quantity')) - sum(quants_disp.mapped('reserved_quantity'))
          
                 record.saldo_existencia = available_quantity_dispo
                     
