@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xml:space="preserve">
+    <t t-extend="ListView.buttons">
+        <t t-jquery="button.o_list_button_add" t-operation="before">
+            <button t-if="widget.modelName == 'stock.quant.reposition'" class="btn btn-primary o_list_tender_button_create" type="action" 
+                    name="stock_move_line_report_rep.action_stock_inventory_reposition">Informe a Fecha</button>
+            <!--<button t-if="widget.modelName != 'stock.quant.reposition'" class="btn btn-primary o_list_button_add" type="action" 
+                    name="stock_move_line_report_rep.action_stock_inventory_reposition">Informe a Fecha</button>-->
+        </t>
+    </t>
+</template>
